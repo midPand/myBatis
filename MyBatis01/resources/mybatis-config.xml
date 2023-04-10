@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="database.properties"></properties>
+    <typeAliases>
+        <package name="com.bdqn.mybatis.entity"></package>
+    </typeAliases>
+    <!--1,配置mybatis的运行环境-->
+    <environments default="development">
+        <environment id="development">
+            <!--配置mybatis的事务管理器-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--配置数据源-->
+            <dataSource type="POOLED">
+                  <!--配置mysql登录名-->
+                  <property name="username" value="${jdbc.username}"></property>
+                  <!--配置mysql登录密码-->
+                  <property name="password" value="${jdbc.password}"></property>
+                  <!--配置mysql驱动-->
+                  <property name="driver" value="${jdbc.driver}"></property>
+                  <!--配置mysql的url地址-->
+                  <property name="url" value="${jdbc.url}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--2,引入映射文件-->
+    <mappers>
+        <!--resource表示映射文件的资源类路径-->
+        <mapper resource="com/bdqn/mybatis/dao/UserMapper.xml"></mapper>
+    </mappers>
+</configuration>
