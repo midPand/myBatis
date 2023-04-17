@@ -45,7 +45,7 @@ public class  test {
         MyBatisUtils.closeSqlsession (sqlSession);
     }
     @Test
-    public void updateUser(){
+    public void updateUser(){    
         User user=new User ();
         user.setUserName ("李启");
         user.setId (40);
